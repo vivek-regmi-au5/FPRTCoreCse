@@ -1,0 +1,169 @@
+Q. What is ACID properties and BASE properties? 
+A. A  transaction is a single logical unit of work which accesses and possibly modifies 
+the contents of a database. Transactions access data using read and write operations.
+In order to maintain consistency in a database, before and after the transaction, certain 
+properties are followed. These are called ACID properties.
+
+Atomicity
+By this, we mean that either the entire transaction takes place at once or doesn’t happen 
+at all. There is no midway i.e. transactions do not occur partially. Each transaction is
+considered as one unit and either runs to completion or is not executed at all. It involves 
+the following two operations.
+—Abort: If a transaction aborts, changes made to database are not visible.
+—Commit: If a transaction commits, changes made are visible.
+Atomicity is also known as the ‘All or nothing rule’.
+
+Consistency
+This means that integrity constraints must be maintained so that the database is consistent 
+before and after the transaction. It refers to the correctness of a database. Referring to 
+the example above,
+The total amount before and after the transaction must be maintained.
+Total before T occurs = 500 + 200 = 700.
+Total after T occurs = 400 + 300 = 700.
+Therefore, database is consistent. Inconsistency occurs in case T1 completes but T2 fails. 
+As a result T is incomplete.
+
+Isolation
+This property ensures that multiple transactions can occur concurrently without leading 
+to the inconsistency of database state. Transactions occur independently without interference. 
+Changes occurring in a particular transaction will not be visible to any other transaction until that particular change in that transaction is written to memory or has been committed. This property ensures that the execution of transactions concurrently will result in a state that is equivalent to a state achieved these were executed serially in some order.
+
+Durability:
+This property ensures that once the transaction has completed execution, the updates and 
+modifications to the database are stored in and written to disk and they persist even if a 
+system failure occurs. These updates now become permanent and are stored in non-volatile 
+memory. The effects of the transaction, thus, are never lost.
+
+BASE is a clever acronym, especially when paralleled with ACID – data professionals are 
+the chemists of the IT universe. While it is not known for sure who originated the term, 
+most people give credit to Dr. Eric Brewer for at minimum popularizing the term. In 2000, 
+his keynote address at the ACM Symposium titled “Towards Robust Distributed Systems”7 
+proved to be the shining moment when many in the industry nodded their heads and knew, 
+at least in their guts, that momentous changes were on the horizon. BASE is essentially 
+the diametric opposite to ACID, with the limitations outlined by Brewer falling across 
+the spectrum. The BASE acronym entails:  Basically Available – the system guarantees 
+some level of availability to the data even in regards to node failures. The data may 
+be stale, but will still give and accept responses.  Soft State – the data is in a constant 
+state of flux; so, while a response maybe given, the freshness or consistency of the data 
+is not guaranteed to be the most current.  Eventual Consistency – the data will eventually 
+be consistent through all nodes and in all databases, but not every transaction at every 
+moment. It will reach some guaranteed state eventually. 
+
+
+Q. What are the differences between paging and segmentation?
+A. Paging
+Paging is a memory management technique in which process address space is broken into blocks 
+of the same size called pages (size is power of 2, between 512 bytes and 8192 bytes). The size 
+of the process is measured in the number of pages. Similarly, main memory is divided into small 
+fixed-sized blocks of (physical) memory called frames and the size of a frame is kept the 
+same as that of a page to have optimum utilization of the main memory and to avoid external 
+fragmentation.
+Similarly, main memory is divided into small fixed-sized blocks of (physical) memory called 
+frames and the size of a frame is kept the same as that of a page to have optimum utilization 
+of the main memory and to avoid external fragmentation.
+Segmentation
+Segmentation is a memory management technique in which each job is divided into several 
+segments of different sizes, one for each module that contains pieces that perform related 
+functions. Each segment is actually a different logical address space of the program. When 
+a process is to be executed, its corresponding segmentation are loaded into non-contiguous 
+memory though every segment is loaded into a contiguous block of available memory. 
+Segmentation memory management works very similar to paging but here segments are of 
+variable-length where as in paging pages are of fixed size.
+A program segment contains the program's main function, utility functions, data structures, 
+and so on. The operating system maintains a segment map table for every process and a list 
+of free memory blocks along with segment numbers, their size and corresponding memory 
+locations in main memory. For each segment, the table stores the starting address of the 
+segment and the length of the segment. A reference to a memory location includes a value 
+that identifies a segment and an offset.
+
+
+Q. Explain the OOPS principles. 
+A. Core OOPS concepts are
+1) Class
+The class is a group of similar entities. It is only an logical component and not the 
+physical entity. For example, if you had a class called “Expensive Cars” it could have 
+objects like Mercedes, BMW, Toyota, etc. Its properties(data) can be price or speed of 
+these cars. While the methods may be performed with these cars are driving, reverse, 
+braking etc.
+2) Object
+An object can be defined as an instance of a class, and there can be multiple instances 
+of a class in a program. An Object contains both the data and the function, which operates 
+on the data. For example - chair, bike, marker, pen, table, car, etc.
+3) Inheritance
+Inheritance is an OOPS concept in which one object acquires the properties and behaviors 
+of the parent object. It’s creating a parent-child relationship between two classes. It 
+offers robust and natural mechanism for organizing and structure of any software.
+4) Polymorphism
+Polymorphism refers to the ability of a variable, object or function to take on multiple 
+forms. For example, in English, the verb run has a different meaning if you use it with a 
+laptop, a foot race, and business. Here, we understand the meaning of run based on the other 
+words used along with it.The same also applied to Polymorphism.
+5) Abstraction
+An abstraction is an act of representing essential features without including background 
+details. It is a technique of creating a new data type that is suited for a specific 
+application. For example, while driving a car, you do not have to be concerned with its 
+internal working. Here you just need to concern about parts like steering wheel, Gears, 
+accelerator, etc.
+6) Encapsulation
+Encapsulation is an OOP technique of wrapping the data and code. In this OOPS concept, 
+the variables of a class are always hidden from other classes. It can only be accessed 
+using the methods of their current class. For example - in school, a student cannot exist 
+without a class.
+7) Association
+Association is a relationship between two objects. It defines the diversity between objects. 
+In this OOP concept, all object have their separate lifecycle, and there is no owner. 
+For example, many students can associate with one teacher while one student can also associate 
+with multiple teachers.
+8) Aggregation
+In this technique, all objects have their separate lifecycle. However, there is ownership 
+such that child object can’t belong to another parent object. For example consider 
+class/objects department and teacher. Here, a single teacher can’t belong to multiple 
+departments, but even if we delete the department, the teacher object will never be destroyed.
+9) Composition
+A composition is a specialized form of Aggregation. It is also called "death" relationship. 
+Child objects do not have their lifecycle so when parent object deletes all child object 
+will also delete automatically. For that, let’s take an example of House and rooms. 
+Any house can have several rooms. One room can’t become part of two different houses. 
+So, if you delete the house room will also be deleted.
+
+Q. What will happen when you write www.google.com in your web browser 
+A.
+▼
+A lot, depends how deep down you want to go detailing it:
+1. The line gets parsed and the protocol, server, port, query gets retrieved
+1.1. The mouse pointer is switched to hourglass
+2. Browser connects to server at the default/specified port
+2.1. If the server's name is in DNS cache then its ip address is retrieved
+2.2. The DNS server (already set up) is queried to resolve the IP address of www.google.com
+3. Browser sends a GET request followed a crlf sequence then by the headers all followed by 
+respective crlf-s
+3.1 If this server has already cached cookies, the browser sends them as cookie headers
+3.2 If the browser supports compression it tells the server what compression is using 
+(via headers) as well as what compression it could accept in return
+3.3 Sends a content-length header set to value "0"
+3.4. Sends a header instructing the server how to denote the end of its transmission stream. 
+Connection: Close would be the most common
+3.5 Sends a crlf sequence to mark the end of the headers (after eventual other headers are sent)
+
+4. (Sends no message body)
+5. Waits for the response which is composed by response code, status, crlf, headers all 
+marked by separate crlf-s and the message body (same as during the send phase)
+5.1. Parses the response code / status
+5.2. If this response starts with 2 it caches cookies, decompresses (if header is mentioning 
+compression) parses and displays the html content of message body (executing eventual scripts 
+hooked to different DOM elements/events)
+5.3 If the response code starts with 3 redirects t the server mentioned in the response (GOTO 1)
+5.4 If the response code starts with 5 parses the response and displays it to the user
+6. Mouse pointer is turned back from hourglass to normal
+
+1. Which of the following condition is required for a deadlock to be possible?(2 mark)
+d) all of the mentioned
+
+2. Which one of the following is the deadlock avoidance algorithm?(2 mark)
+a) banker's algorithm
+
+5. Which of the following is not the state of a process?(2 mark)
+b) Old
+
+4. A Process Control Block(PCB) does not contain which of the following?(2 mark)
+d) Data
